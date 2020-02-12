@@ -20,6 +20,7 @@ public class FormActivity extends AppCompatActivity {
     Context context;
 
     private static final String WARNING = "One of the fields is empty.";
+    private static final String NO_MATCH = "Passwords don't match.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,14 @@ public class FormActivity extends AppCompatActivity {
                 }
                 else if(editConfirmPassword.getText().toString().isEmpty()){
                     Toast.makeText(context, WARNING, Toast.LENGTH_SHORT).show();
+                }
+                else if(!editPassword.getText().toString().equals(editConfirmPassword.getText().toString())){
+                    Toast.makeText(context, NO_MATCH, Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    String displayMessage;
+                    displayMessage = "Hello " + editName.getText().toString();
+                    Toast.makeText(context, displayMessage, Toast.LENGTH_SHORT).show();
                 }
             }
         });
