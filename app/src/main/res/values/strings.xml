@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SignUpForm</string>
+    <string name="name_hint">Enter Name</string>
+    <string name="name_label">Name: </string>
+    <string name="email_label">Email: </string>
+    <string name="email_hint">Enter Email</string>
+</resources>
