@@ -19,27 +19,35 @@ public class FormActivity extends AppCompatActivity {
     Button saveButton;
     Context context;
 
+    private static final String WARNING = "One of the fields is empty.";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
 
-        editName = findViewById(R.id.editName);
-        editEmail = findViewById(R.id.editEmail);
-        editPassword = findViewById(R.id.editPassword);
-        editConfirmPassword = findViewById(R.id.editConfirmPass);
-        saveButton = findViewById(R.id.saveButton);
+        editName = findViewById(R.id.edit_name);
+        editEmail = findViewById(R.id.edit_email);
+        editPassword = findViewById(R.id.edit_pass);
+        editConfirmPassword = findViewById(R.id.edit_confirm_pass);
+        saveButton = findViewById(R.id.button_save);
 
         context = getApplicationContext();
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(editName.getText().toString().trim().isEmpty()){
-                    Toast.makeText(context, "Please enter name", Toast.LENGTH_SHORT).show();
+                if(editName.getText().toString().isEmpty()){
+                    Toast.makeText(context, WARNING, Toast.LENGTH_SHORT).show();
                 }
-                else if(editEmail.getText().toString().trim().isEmpty()){
-                    Toast.makeText(context, "Please enter email", Toast.LENGTH_SHORT).show();
+                else if(editEmail.getText().toString().isEmpty()){
+                    Toast.makeText(context, WARNING, Toast.LENGTH_SHORT).show();
+                }
+                else if(editPassword.getText().toString().isEmpty()){
+                    Toast.makeText(context, WARNING, Toast.LENGTH_SHORT).show();
+                }
+                else if(editConfirmPassword.getText().toString().isEmpty()){
+                    Toast.makeText(context, WARNING, Toast.LENGTH_SHORT).show();
                 }
             }
         });
