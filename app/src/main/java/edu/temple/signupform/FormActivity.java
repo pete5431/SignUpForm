@@ -16,7 +16,9 @@ public class FormActivity extends AppCompatActivity {
     EditText editConfirmPassword;
     Button saveButton;
 
-    private static final String WARNING = "Empty field(s) detected.";
+    // The string message displayed through toast when a field is empty.
+    private static final String WARNING = "Please enter all information.";
+    // The string message displayed through toast when passwords don't match.
     private static final String NO_MATCH = "Passwords don't match.";
 
     @Override
@@ -33,6 +35,7 @@ public class FormActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Makes sure all fields are not empty, and if all if statements are false, the message is displayed.
                 if(editName.getText().toString().isEmpty()){
                     Toast.makeText(FormActivity.this, WARNING, Toast.LENGTH_SHORT).show();
                 }
@@ -50,7 +53,7 @@ public class FormActivity extends AppCompatActivity {
                 }
                 else{
                     String displayMessage;
-                    displayMessage = "Welcome, " + editName.getText().toString() + " to the SignUpForm App";
+                    displayMessage = "Welcome, " + editName.getText().toString() + ", to the SignUpForm App";
                     Toast.makeText(FormActivity.this, displayMessage, Toast.LENGTH_SHORT).show();
                 }
             }
