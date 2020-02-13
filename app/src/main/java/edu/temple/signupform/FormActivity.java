@@ -2,12 +2,10 @@ package edu.temple.signupform;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class FormActivity extends AppCompatActivity {
@@ -17,9 +15,8 @@ public class FormActivity extends AppCompatActivity {
     EditText editPassword;
     EditText editConfirmPassword;
     Button saveButton;
-    Context context;
 
-    private static final String WARNING = "One of the fields is empty.";
+    private static final String WARNING = "Empty field(s) detected.";
     private static final String NO_MATCH = "Passwords don't match.";
 
     @Override
@@ -27,36 +24,34 @@ public class FormActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
 
-        editName = findViewById(R.id.edit_name);
-        editEmail = findViewById(R.id.edit_email);
-        editPassword = findViewById(R.id.edit_pass);
-        editConfirmPassword = findViewById(R.id.edit_confirm_pass);
-        saveButton = findViewById(R.id.button_save);
-
-        context = getApplicationContext();
+        editName = (EditText) findViewById(R.id.edit_name);
+        editEmail = (EditText) findViewById(R.id.edit_email);
+        editPassword = (EditText) findViewById(R.id.edit_pass);
+        editConfirmPassword = (EditText) findViewById(R.id.edit_confirm_pass);
+        saveButton = (Button) findViewById(R.id.button_save);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(editName.getText().toString().isEmpty()){
-                    Toast.makeText(context, WARNING, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FormActivity.this, WARNING, Toast.LENGTH_SHORT).show();
                 }
                 else if(editEmail.getText().toString().isEmpty()){
-                    Toast.makeText(context, WARNING, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FormActivity.this, WARNING, Toast.LENGTH_SHORT).show();
                 }
                 else if(editPassword.getText().toString().isEmpty()){
-                    Toast.makeText(context, WARNING, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FormActivity.this, WARNING, Toast.LENGTH_SHORT).show();
                 }
                 else if(editConfirmPassword.getText().toString().isEmpty()){
-                    Toast.makeText(context, WARNING, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FormActivity.this, WARNING, Toast.LENGTH_SHORT).show();
                 }
                 else if(!editPassword.getText().toString().equals(editConfirmPassword.getText().toString())){
-                    Toast.makeText(context, NO_MATCH, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FormActivity.this, NO_MATCH, Toast.LENGTH_SHORT).show();
                 }
                 else{
                     String displayMessage;
-                    displayMessage = "Hello " + editName.getText().toString();
-                    Toast.makeText(context, displayMessage, Toast.LENGTH_SHORT).show();
+                    displayMessage = "Welcome, " + editName.getText().toString() + " to the SignUpForm App";
+                    Toast.makeText(FormActivity.this, displayMessage, Toast.LENGTH_SHORT).show();
                 }
             }
         });
