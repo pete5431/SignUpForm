@@ -4,4 +4,9 @@
     <string name="name_label">Name: </string>
     <string name="email_label">Email: </string>
     <string name="email_hint">Enter Email</string>
+    <string name="password_hint">Enter Password</string>
+    <string name="password_label">Password: </string>
+    <string name="password_confirm_hint">Enter Password Again</string>
+    <string name="password_confirm_label">Confirm Password: </string>
+    <string name="button_text">Save</string>
 </resources>
